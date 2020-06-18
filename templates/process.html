@@ -1,0 +1,378 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<br>
+<br>
+<div class="container-fluid padding" style="top:25px;" id="scan_option" >
+  <div class="row">
+    <div class="col-sm-6 border scanning padding text-center" >
+      <form method="POST">  
+            <div class="form-group">
+              <input type="text"
+                class="form-control" name="url" id="url" aria-describedby="help" placeholder="Enter URL">
+              <small id="help" class="form-text text-left text-muted">*Please Enter a Valid URL</small>
+            </div>
+          <div class="input-group mb-3 padding " id="input" style="padding:4px;">
+          <div class="input-group-prepend padding" >
+            <label class="input-group-text" id="prepend" for="inputGroupSelect01">SCAN</label>
+          </div>
+          <select class="custom-select options" id="inputGroupSelect01" >
+            <option selected >SELECT---</option>
+            <option name="option" value="1">BASIC</option></a>
+            <option name="option" value="2">ENHANCED</option>
+          </select>
+        </div>
+      </form>
+     
+      <!--try-->
+      <div class="card" id="for-basic" style="display:none;">
+        <div class="card-header text-center">BASIC SCAN</div>
+        <div class="card-body">
+          <ul class="list-group text-left">
+            <li class="list-group-item">Length of the url
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated"></div>
+              </div>
+            </li>
+            <li class="list-group-item">Certificate checker
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated"></div>
+              </div>
+            </li>
+            <li class="list-group-item">Is sub-domain exist
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated"></div>
+              </div>
+            </li>
+            <li class="list-group-item">No type-squatting
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated"></div>
+              </div>
+            </li>
+            <li class="list-group-item" >Is the domain name is legitimate
+              <div class="progress">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated"></div>
+              </div>
+            </li>
+            <li class="list-group-item" >Is the url is in the blacklisted url list
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated"></div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <br> 
+      </div>
+      <div class="card text-left" style="display:none" id="for-enhanced">
+        <div class="card-header text-center">ENHANCED SCAN</div>
+        <div class="card-body">
+          <ul>
+            <li class="list-group-item">Length of the url
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated"></div>
+              </div>
+            </li>
+            <li class="list-group-item">Certificate checker
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated"></div>
+              </div>
+            </li>
+            <li class="list-group-item" >Is sub-domain exist
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated"></div>
+              </div>
+            </li>
+            <li class="list-group-item" >No type-squatting
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated"></div>
+              </div>
+            </li>
+            <li class="list-group-item">Is the domain name is legitimate
+                <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated"></div>
+              </div>
+            </li>
+            <li class="list-group-item">Is the url is in the blacklisted url list
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated"></div>
+              </div>
+            </li>
+            <li class="list-group-item">Is the name of the registrar hidden
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated"></div>
+              </div>
+            </li>
+            <li class="list-group-item" >Number of days of domain registration
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated"></div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+       <!--
+      <div class="card" id="basic">
+        <div class="card-header">BASIC SCAN</div>
+        <div class="card-body">
+          <ul class="list-group text-left">
+            <li class="list-group-item ">Length of the url</li>
+            <li class="list-group-item">Certificate checker</li>
+            <li class="list-group-item ">Is sub-domain exist</li>
+            <li class="list-group-item">No type-squatting</li>
+            <li class="list-group-item ">Is the domain name is legitimate</li>
+            <li class="list-group-item">Is the url is in the blacklisted url list</li>
+          </ul>
+        </div>
+      </div>
+          <div class="card" style="display:none" id="enhanced">
+            <div class="card-header text-center">ENHANCED SCAN</div>
+            <div class="card-body">
+              <ul>
+                <li class="list-group-item">Length of the url</li>
+                <li class="list-group-item">Certificate checker</li>
+                <li class="list-group-item ">Is sub-domain exist</li>
+                <li class="list-group-item">No type-squatting</li>
+                <li class="list-group-item ">Is the domain name is legitimate</li>
+                <li class="list-group-item">Is the url is in the blacklisted url list</li>
+                <li class="list-group-item ">Is the name of the registrar hidden</li>
+                <li class="list-group-item">Number of days of domain registration</li>
+              </ul>
+            </div>
+          </div> -->
+          <br>
+          <br>
+          <div class="button">
+              <button type="button" id="scanning" class="btn-start btn-btn" onclick="open()">Start Scanning</button>
+          </div>
+        </div>
+    </div>
+  </div>
+  <br> 
+
+</div>
+</div>
+<!-- x-----processing -------x  -->
+<!--<div class="container-fluid padding" style="top:25px;" id="processing">
+  <div class="row">
+    <div class="col-sm-6 border scanning padding text-center" >
+      <div class="card" id="for-basic" style="display:none;">
+        <div class="card-header text-center">BASIC SCAN</div>
+        <div class="card-body">
+          <ul class="list-group text-left">
+            <li class="list-group-item ">Length of the url
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated"></div>
+              </div>
+            </li>
+            <li class="list-group-item">Certificate checker
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated"></div>
+              </div>
+            </li>
+            <li class="list-group-item ">Is sub-domain exist
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated"></div>
+              </div>
+            </li>
+            <li class="list-group-item">No type-squatting
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated"></div>
+              </div>
+            </li>
+            <li class="list-group-item ">Is the domain name is legitimate
+              <div class="progress">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated"></div>
+              </div>
+            </li>
+            <li class="list-group-item">Is the url is in the blacklisted url list
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated"></div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <br> 
+      </div>
+      <br> 
+      <div class="card text-left" style="display:none" id="for-enhanced">
+        <div class="card-header text-center">ENHANCED SCAN</div>
+        <div class="card-body">
+          <ul>
+            <li class="list-group-item">Length of the url
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated"></div>
+              </div>
+            </li>
+            <li class="list-group-item">Certificate checker
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated"></div>
+              </div>
+            </li>
+            <li class="list-group-item ">Is sub-domain exist
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated"></div>
+              </div>
+            </li>
+            <li class="list-group-item">No type-squatting
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated"></div>
+              </div>
+            </li>
+            <li class="list-group-item ">Is the domain name is legitimate
+                <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated"></div>
+              </div>
+            </li>
+            <li class="list-group-item">Is the url is in the blacklisted url list
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated"></div>
+              </div>
+            </li>
+            <li class="list-group-item ">Is the name of the registrar hidden
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated"></div>
+              </div>
+            </li>
+            <li class="list-group-item">Number of days of domain registration
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated"></div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+-->
+<!-------end of processing --------->
+<br>
+<br>
+<br>
+<!-- user profile -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-4 user-profile">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title">{{username}}</h2>
+        </div>
+      </div>card-body
+    </div>
+  </div>
+</div>
+<!-- End of user profile -->
+{% endblock %}
+
+{% block css %}
+
+<style>
+  #basic{
+    display:none;
+  }
+   .scanning{
+      text-align:center;
+      padding:5px;
+      padding:5px;
+      position:relative;
+      top:20px;
+      left:20px;
+    }
+    .btn-start{
+      margin:auto;
+      padding:15px;
+      text-align:center;
+      color:black;
+      font-family:'Arial Black';
+      font-size:10px;
+      transform:translate(-50%,-50%);
+      background:linear-gradient(to right,rgb(88, 202, 247),rgb(80, 165, 214));
+      letter-spacing:3px;
+      text-decoration:none;
+      text-transform:uppercase;
+      overflow:hidden;
+    }
+    .btn-start:hover{
+      background:linear-gradient(to right,rgb(15, 182, 204),rgb(26, 185, 180));  
+    }
+    a:before{
+      content: " ";
+      position:asolute;
+      top:2px;
+      left:2px;
+      bottom:2px;
+      width:50%;
+      background:rgba(255,255,255,0.05);
+
+    }
+
+    #for-basic{
+      display:none;
+    }
+    
+    #for-enhanced{
+      display:none;
+    }
+
+    #input{
+      width:60%;
+      left:20%;
+      
+    }
+    #prepend{
+      color:snow;
+      letter-spacing:2px;
+      font-size:13px;
+      text-transform:uppercaase;
+      font-family:'Arial Black';
+    }
+    .options{
+      background-color: rgb(255, 255, 255);
+      font-family:'Lucida-Handwriting';
+      font-size:1.2rem;
+      
+    }
+    .options:hover{
+        background-color: rgb(231, 235, 240);
+        color:rgb(110, 39, 39);
+    }
+</style>
+{% endblock %}
+
+{% block js %}
+<script>
+  $("#inputGroupSelect01").change(function(){
+    
+   if($(this).val()=="1")
+   {    
+        
+       $("#for-basic").show();
+       $("#for-enhanced").hide();
+   }
+    else if($(this).val()=="2")
+    {
+        $("#for-enhanced").show();
+        $("#for-basic").hide();
+    }
+});
+
+$("#click").click(function(){
+  $("#form-1").hide();
+  $('#form-2').show();
+});
+$("#scanning").click(function() {
+  if($("#option").val()=="1")
+   {    
+       document.getElementById("for-basic").style.display="block";
+       document.getElementById("basic").style.display="none";
+   }
+    else if($("#option").val()=="2")
+    {
+      document.getElementById("for-enhanced").style.display="block";
+      document.getElementById("enhanced").style.display="none";
+    }
+});
+
+
+</script>
+{% endblock %}
