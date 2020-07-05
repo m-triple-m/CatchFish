@@ -1,0 +1,282 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<div class="container">
+
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-8">
+            <div class="card mt-5">
+                <div class="card-body">
+                    <form method="POST">  
+                        <div class="form-group text-center">
+                          <label for="url" class=" h3">Enter URL to check</label>
+                          <input type="text"
+                            class="form-control" name="url" id="url" aria-describedby="help" placeholder="Enter URL">
+                          <small id="help" class="form-text text-left text-muted">*Please Enter a Valid URL</small>
+                        </div>
+                      <div class="input-group mb-3 padding " id="input" style="padding:4px;">
+                      <div class="input-group-prepend padding" >
+                        <label class="input-group-text" id="prepend" for="inputGroupSelect01">SCAN</label>
+                      </div>
+                      <select class="custom-select options" id="inputGroupSelect01" >
+                        <option selected >SELECT---</option>
+                        <option name="option" value="1">BASIC</option></a>
+                        <option name="option" value="2">ENHANCED</option>
+                      </select>
+                    </div>
+
+                    <button type="button" id="scanning" class="btn btn-primary btn-block mt-5">Start Scan</button>
+                  </form>
+                </div>
+            </div>
+
+            <div class="card" id="for-basic" style="display:none;">
+                <div class="card-header text-center">BASIC SCAN RESULTS</div>
+                <div class="card-body">
+                    <ul class="list-group text-left">
+                    <li class="list-group-item">Length of the url
+                        <div class="progress">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated"
+                        role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"
+                        id="b1"></div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">Certificate checker
+                        <div class="progress">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"
+                        id="b2"></div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">Is sub-domain exist
+                        <div class="progress">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"
+                        id="b3"></div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">No type-squatting
+                        <div class="progress">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"
+                        id="b4"></div>
+                        </div>
+                    </li>
+                    <li class="list-group-item" >
+                      <div class="row ml-1">
+                        
+                            <p class="mt-2">Is the domain name is legitimate</p>
+                            <img src="" id="b5" style="width:50px" class="ml-4">
+                          
+                      </div>
+                    </li>
+                    <li class="list-group-item" >
+                      <div class="row ml-1">
+                        <p class="mt-2">Is the url is in the blacklisted url list</p>
+                        <img src="" id="b6" style="width:50px" class="ml-4">
+                      </div>
+                    </li>
+                    </ul>
+                </div>
+                <br> 
+            </div>
+
+            <div class="card text-left" style="display:none" id="for-enhanced">
+                <div class="card-header text-center">ENHANCED SCAN RESULTS</div>
+                <div class="card-body">
+                  <ul>
+                    <li class="list-group-item">Length of the url
+                      <div class="progress">
+                      <div class="progress-bar progress-bar-striped progress-bar-animated"
+                      role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"
+                      id="e1"></div>
+                      </div>
+                  </li>
+                  <li class="list-group-item">Certificate checker
+                      <div class="progress">
+                      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"
+                      id="e2"></div>
+                      </div>
+                  </li>
+                  <li class="list-group-item">Is sub-domain exist
+                      <div class="progress">
+                      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"
+                      id="e3"></div>
+                      </div>
+                  </li>
+                  <li class="list-group-item">No type-squatting
+                      <div class="progress">
+                      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"
+                      id="e4"></div>
+                      </div>
+                  </li>
+                    <li class="list-group-item" >
+                      <div class="row ml-1">
+                        
+                            <p class="mt-2">Is the domain name is legitimate</p>
+                            <img src="" id="e5" style="width:50px" class="ml-4">
+                          
+                      </div>
+                    </li>
+                    <li class="list-group-item" >
+                      <div class="row ml-1">
+                        <p class="mt-2">Is the url is in the blacklisted url list</p>
+                        <img src="" id="e6" style="width:50px" class="ml-4">
+                      </div>
+                    </li>
+                    <li class="list-group-item" >
+                      <div class="row ml-1">
+                        
+                            <p class="mt-2">Is the name of the registrar hidden</p>
+                            <img src="" id="e7" style="width:50px" class="ml-4">
+                          
+                      </div>
+                    </li>
+                    <li class="list-group-item" >
+                      <div class="row ml-1">
+                        
+                            <p class="mt-2">Number of days of domain registration</p>
+                            <h3 class="ml-4 text-dark" id="e8"></h3>
+                          
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
+
+
+{% block js %}
+
+<script>
+
+
+$(document).ready(() => {
+
+    let basicScan = () => {
+        let url = $('#url').val();
+            $.ajax({url : '/basic', data : {url : url}, method : "post", complete : (data) => {
+                console.log(data.responseJSON);
+                  let result = data.responseJSON;
+                  // console.log(result.slice(0, 4))
+                result.slice(0, 4).forEach((ele, index) => {
+                  // console.log(index);
+                  $('#b'+(index+1)).css('width', ele+'%');
+                });
+
+                for(let i=0;i<2;i++){
+                  if(result[i+4]){
+                    $('#b'+(i+5)).prop('src', 'static/Images/check.gif');
+                  }else{
+                    $('#b'+(i+5)).prop('src', 'static/Images/cross.gif');
+                  }
+                }
+                
+                sessionStorage.setItem('data', JSON.stringify(data.responseJSON))
+                    Swal.fire({
+                        icon : 'success',
+                        title: 'Data Successfully Collected!',
+                        html: 'Proceed to see',
+                        }).then(() => {
+                            // window.location.replace('/display')
+                            $("#for-basic").show();
+                            $("#for-enhanced").hide();
+                        })
+                
+            },
+            beforeSend: () => {
+                Swal.fire({
+                    title: 'Wait a bit!',
+                    html: 'This may take some time',
+                    timerProgressBar: true,
+                    onBeforeOpen: (
+                        
+                    ) => {
+                        Swal.showLoading();
+                    },
+                    })
+            },
+            })
+        }
+
+        let enhancedScan = () => {
+        let url = $('#url').val();
+            $.ajax({url : '/enhanced', data : {url : url}, method : "post", complete : (data) => {
+                console.log(data.responseJSON);
+                  let result = data.responseJSON;
+                  // console.log(result.slice(0, 4))
+                result.slice(0, 4).forEach((ele, index) => {
+                  // console.log(index);
+                  $('#e'+(index+1)).css('width', ele+'%');
+                });
+
+                for(let i=0;i<3;i++){
+                  if(result[i+4]){
+                    $('#e'+(i+5)).prop('src', 'static/Images/check.gif');
+                  }else{
+                    $('#e'+(i+5)).prop('src', 'static/Images/cross.gif');
+                  }
+                }
+
+                $('#e8').append(result[7]);
+                
+                // sessionStorage.setItem('data', JSON.stringify(data.responseJSON))
+                    Swal.fire({
+                        icon : 'success',
+                        title: 'Data Successfully Collected!',
+                        html: 'Proceed to see',
+                        }).then(() => {
+                            // window.location.replace('/display')
+                            $("#for-basic").hide();
+                            $("#for-enhanced").show();
+                        })
+                
+            },
+            beforeSend: () => {
+                Swal.fire({
+                    title: 'Wait a bit!',
+                    html: 'This may take some time',
+                    timerProgressBar: true,
+                    onBeforeOpen: (
+                        
+                    ) => {
+                        Swal.showLoading();
+                    },
+                    })
+            },
+            })
+        }
+
+    $("#inputGroupSelect01").change(function(){
+    
+    if($(this).val()=="1"){    
+        // $("#for-basic").show();
+        // $("#for-enhanced").hide();
+
+    }
+     else if($(this).val()=="2"){
+        //  $("#for-enhanced").show();
+        //  $("#for-basic").hide();
+     }
+ });
+
+ $("#scanning").click(function() {
+  if($("#inputGroupSelect01").val()=="1")
+   {    
+       basicScan();
+   }
+    else if($("#inputGroupSelect01").val()=="2")
+    {
+      enhancedScan();
+    }
+
+});
+});
+
+
+</script>
+{% endblock %}

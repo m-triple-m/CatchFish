@@ -5,7 +5,7 @@ import pandas as pd
 
 def check_typesquatting(domain_name):
     try:
-        file=pd.read_csv("C:/Users/PRIYANSHI/Documents/python/phishing and pharming/database/datasets/domain.csv")
+        file=pd.read_csv("database/datasets/domain.csv")
         for i in file["Domain"]:
             f=fuzz.ratio(i,domain_name)
             return f #ratio will be the width of the progress bar

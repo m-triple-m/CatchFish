@@ -20,14 +20,14 @@
         <div class="card card-signin my-5">
           <div class="card-body signin">
             <h1 class="card-title text-center"><b>CatchPhish</b></h1>
-            <form class="form-signup">
+            <form class="form-signup" method="POST">
               <div class="form-label-group">
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" name="email" required autofocus>
                 <label for="inputEmail">Email address</label>
               </div>
               <div class="form-label-group">
+                <input type="password" id="pwd" class="form-control" placeholder="Password" name="password" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
                 <label for="pwd">Password</label>
-                <input type="password" id="pwd" class="form-control" placeholder="Password" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
                 <br>
               </div>
              <div class="custom-control custom-checkbox mb-3">
@@ -36,7 +36,7 @@
              </div>
              <button id="login" class="btn btn-lg  btn-block text-uppercase" type="submit">Sign In</button>
              <hr class="my-4">
-             <a  href="/login"><button id="login" class="btn btn-lg  btn-block text-uppercase" type="button">Sign Up</button></a>
+             <a  href="/register"><button id="login" class="btn btn-lg  btn-block text-uppercase" type="button">Sign Up</button></a>
             </form>
           </div>
         </div>

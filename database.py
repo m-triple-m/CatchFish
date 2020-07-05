@@ -15,9 +15,9 @@ Report=db["Report"]
 def insert_user(username,email,password):
     try:   
         insert={ 
-                 uname:username,
-                 email:email,
-                 password:password                        
+                 'uname':username,
+                 'email':email,
+                 'password':password                        
                 }
         x=Users.insert_one(insert)
     except:
@@ -43,6 +43,12 @@ def insert_report(pub_date,search_id,url_id,report_name):
         }
     except:
         print("Some error has occured")
+
+def getUserByEmail(email):
+    return Users.find_one({'email' : email})
+
+def getAll():
+    return list(Users.find({}))
 
 
 
