@@ -8,7 +8,7 @@ def check_typesquatting(domain_name):
         file=pd.read_csv("database/datasets/domain.csv")
         for i in file["Domain"]:
             f=fuzz.ratio(i,domain_name)
-            return f #ratio will be the width of the progress bar
+            return True #ratio will be the width of the progress bar
     except:
-        return random.randrange(40,61)
+        return False
 

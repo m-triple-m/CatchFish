@@ -3,7 +3,6 @@
 {% block body %}
 
 <div class="container">
-
     <div class="row justify-content-center mt-5">
         <div class="col-md-8">
             <div class="card mt-5">
@@ -34,43 +33,44 @@
             <div class="card" id="for-basic" style="display:none;">
                 <div class="card-header text-center">BASIC SCAN RESULTS</div>
                 <div class="card-body">
+
+                    <p class="h2 mt-3 mb-5 text-center text-primary" id="num1"></p>
+                    <p id="result1" class="display-4 text-center"></p>
+
                     <ul class="list-group text-left">
-                    <li class="list-group-item">Length of the url
-                        <div class="progress">
-                        <div class="progress-bar progress-bar-striped progress-bar-animated"
-                        role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"
-                        id="b1"></div>
-                        </div>
-                    </li>
-                    <li class="list-group-item">Certificate checker
-                        <div class="progress">
-                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"
-                        id="b2"></div>
-                        </div>
-                    </li>
-                    <li class="list-group-item">Is sub-domain exist
-                        <div class="progress">
-                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"
-                        id="b3"></div>
-                        </div>
-                    </li>
-                    <li class="list-group-item">No type-squatting
-                        <div class="progress">
-                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"
-                        id="b4"></div>
-                        </div>
-                    </li>
-                    <li class="list-group-item" >
+                    <li class="list-group-item">
                       <div class="row ml-1">
-                        
-                            <p class="mt-2">Is the domain name is legitimate</p>
-                            <img src="" id="b5" style="width:50px" class="ml-4">
-                          
+                            <p class="my-auto">Length of the url</p>
+                            <img src="" id="b1" style="width:50px" class="ml-4">
+                      </div>
+                    </li>
+                    <li class="list-group-item">
+                      <div class="row ml-1">
+                            <p class="my-auto">Certificate checker</p>
+                            <img src="" id="b2" style="width:50px" class="ml-4">
+                      </div>
+                    </li>
+                    <li class="list-group-item">
+                      <div class="row ml-1">
+                            <p class="my-auto">Is sub-domain exist</p>
+                            <img src="" id="b3" style="width:50px" class="ml-4">
+                      </div>
+                    </li>
+                    <li class="list-group-item">
+                      <div class="row ml-1">
+                            <p class="my-auto">No type-squatting</p>
+                            <img src="" id="b4" style="width:50px" class="ml-4">
                       </div>
                     </li>
                     <li class="list-group-item" >
                       <div class="row ml-1">
-                        <p class="mt-2">Is the url is in the blacklisted url list</p>
+                            <p class="my-auto">Is the domain name is legitimate</p>
+                            <img src="" id="b5" style="width:50px" class="ml-4">
+                      </div>
+                    </li>
+                    <li class="list-group-item" >
+                      <div class="row ml-1">
+                        <p class="my-auto">Is the url is in the blacklisted url list</p>
                         <img src="" id="b6" style="width:50px" class="ml-4">
                       </div>
                     </li>
@@ -83,35 +83,36 @@
                 <div class="card-header text-center">ENHANCED SCAN RESULTS</div>
                 <div class="card-body">
                   <ul>
-                    <li class="list-group-item">Length of the url
-                      <div class="progress">
-                      <div class="progress-bar progress-bar-striped progress-bar-animated"
-                      role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"
-                      id="e1"></div>
+                    <p class="h2 mt-3 mb-5 text-center text-primary" id="num2"></p>
+                    <p id="result2" class="display-4 text-center"></p>
+                    <li class="list-group-item">
+                      <div class="row ml-1">
+                        <p class="mt-2">Length of the url</p>
+                        <img src="" id="e1" style="width:50px" class="ml-4">
                       </div>
                   </li>
-                  <li class="list-group-item">Certificate checker
-                      <div class="progress">
-                      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"
-                      id="e2"></div>
-                      </div>
+                  <li class="list-group-item">
+                    <div class="row ml-1">
+                      <p class="mt-2">Certificate checker</p>
+                      <img src="" id="e2" style="width:50px" class="ml-4">
+                    </div>
                   </li>
-                  <li class="list-group-item">Is sub-domain exist
-                      <div class="progress">
-                      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"
-                      id="e3"></div>
-                      </div>
+                  <li class="list-group-item">
+                    <div class="row ml-1">
+                      <p class="mt-2">Is sub-domain exist</p>
+                      <img src="" id="e3" style="width:50px" class="ml-4">
+                    </div>
                   </li>
-                  <li class="list-group-item">No type-squatting
-                      <div class="progress">
-                      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"
-                      id="e4"></div>
-                      </div>
+                  <li class="list-group-item">
+                    <div class="row ml-1">
+                      <p class="mt-2">No type-squatting</p>
+                      <img src="" id="e4" style="width:50px" class="ml-4">
+                    </div>
                   </li>
                     <li class="list-group-item" >
                       <div class="row ml-1">
                         
-                            <p class="mt-2">Is the domain name is legitimate</p>
+                            <p class="my-auto">Is the domain name is legitimate</p>
                             <img src="" id="e5" style="width:50px" class="ml-4">
                           
                       </div>
@@ -124,18 +125,14 @@
                     </li>
                     <li class="list-group-item" >
                       <div class="row ml-1">
-                        
-                            <p class="mt-2">Is the name of the registrar hidden</p>
-                            <img src="" id="e7" style="width:50px" class="ml-4">
-                          
+                        <p class="mt-2">Is the name of the registrar hidden</p>
+                        <img src="" id="e7" style="width:50px" class="ml-4">
                       </div>
                     </li>
                     <li class="list-group-item" >
                       <div class="row ml-1">
-                        
-                            <p class="mt-2">Number of days of domain registration</p>
-                            <h3 class="ml-4 text-dark" id="e8"></h3>
-                          
+                        <p class="mt-2">Is the name of the registrar hidden</p>
+                        <img src="" id="e8" style="width:50px" class="ml-4">
                       </div>
                     </li>
                   </ul>
@@ -163,19 +160,35 @@ $(document).ready(() => {
                 console.log(data.responseJSON);
                   let result = data.responseJSON;
                   // console.log(result.slice(0, 4))
-                result.slice(0, 4).forEach((ele, index) => {
-                  // console.log(index);
-                  $('#b'+(index+1)).css('width', ele+'%');
-                });
 
-                for(let i=0;i<2;i++){
-                  if(result[i+4]){
-                    $('#b'+(i+5)).prop('src', 'static/Images/check.gif');
+                // result.slice(0, 4).forEach((ele, index) => {
+                //   // console.log(index);
+                //   $('#b'+(index+1)).css('width', ele+'%');
+                // });
+                let passed = 0;
+                for(let i=0;i<6;i++){
+                  if(result[i]){
+                    $('#b'+(i+1)).prop('src', 'static/Images/check.gif');
+                    passed++;
                   }else{
-                    $('#b'+(i+5)).prop('src', 'static/Images/cross.gif');
+                    $('#b'+(i+1)).prop('src', 'static/Images/cross.gif');
                   }
                 }
+
+                $('#num1').html("Tests Passed : "+`${passed} out of 6`);
                 
+                let res;
+                if(passed>=3){
+                  res = 'LEGITIMATE'
+                  $('#result1').addClass('text-success');
+                }
+                  
+                else{
+                  res = 'FAKE'
+                  $('#result1').addClass('text-danger');
+                }
+                $('#result1').html(res)
+
                 sessionStorage.setItem('data', JSON.stringify(data.responseJSON))
                     Swal.fire({
                         icon : 'success',
@@ -208,21 +221,30 @@ $(document).ready(() => {
             $.ajax({url : '/enhanced', data : {url : url}, method : "post", complete : (data) => {
                 console.log(data.responseJSON);
                   let result = data.responseJSON;
-                  // console.log(result.slice(0, 4))
-                result.slice(0, 4).forEach((ele, index) => {
-                  // console.log(index);
-                  $('#e'+(index+1)).css('width', ele+'%');
-                });
 
-                for(let i=0;i<3;i++){
-                  if(result[i+4]){
-                    $('#e'+(i+5)).prop('src', 'static/Images/check.gif');
+                let passed = 0;
+
+                for(let i=0;i<8;i++){
+                  if(result[i]){
+                    $('#e'+(i+1)).prop('src', 'static/Images/check.gif');
+                    passed++;
                   }else{
-                    $('#e'+(i+5)).prop('src', 'static/Images/cross.gif');
+                    $('#e'+(i+1)).prop('src', 'static/Images/cross.gif');
                   }
                 }
 
-                $('#e8').append(result[7]);
+                $('#num2').html("Tests Passed : "+`${passed} out of 8`);
+                let res;
+                if(passed>=4){
+                  res = 'LEGITIMATE'
+                  $('#result2').addClass('text-success');
+                }
+                  
+                else{
+                  res = 'FAKE'
+                  $('#result2').addClass('text-danger');
+                }
+                $('#result2').html(res)
                 
                 // sessionStorage.setItem('data', JSON.stringify(data.responseJSON))
                     Swal.fire({

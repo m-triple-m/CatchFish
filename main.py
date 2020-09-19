@@ -93,10 +93,15 @@ def Enhanced():
             legitimate = check_legimitate(url)
             blacklist = check_blacklist(url)
             registrar_hidden = False
-            num_days = 40
+            num_days = True
 
         return jsonify(length_of_url, certificate, sub_domain, type_squatting, legitimate, blacklist, registrar_hidden, num_days)
     return jsonify('')
+
+
+@app.route('/gauge')
+def Guage():
+    return render_template('gauge.html')
 #function call 
 
 #typesquat=check_typesquatting(domain)   #1
@@ -120,11 +125,11 @@ def url_length(url):
     try:
         length=len(url)      
         if length>10 and length <2038:
-            return random.randrange(80,98)
+            return True
         else:
-            return random.randrange(50,60) 
+            return False 
     except:
-        return random.randrange(30,60)
+        return False
 
 def subdomain(url):
     try:
@@ -132,19 +137,19 @@ def subdomain(url):
         sub_dom=result.subdomain
         category=result
         if sub_dom!="":
-            return random.randrange(80,96)
+            return False
         else:
-            return random.randrange(60,80)
+            return True
     except:
-        return random.randrange(30,50)
+        return False
 
 def certificate_checker(url):
     u=urlparse(url)
     cert=u.scheme
     if cert=='https':
-        return 100
+        return True
     else:
-        return random.randrange(50,81)
+        return False
 
 
 
