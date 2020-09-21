@@ -99,7 +99,7 @@ def Enhanced():
     return jsonify('')
 
 
-@app.route('/gauge')
+@app.route('/result')
 def Guage():
     return render_template('gauge.html')
 #function call 

@@ -34,8 +34,7 @@
                 <div class="card-header text-center">BASIC SCAN RESULTS</div>
                 <div class="card-body">
 
-                    <p class="h2 mt-3 mb-5 text-center text-primary" id="num1"></p>
-                    <p id="result1" class="display-4 text-center"></p>
+                    
 
                     <ul class="list-group text-left">
                     <li class="list-group-item">
@@ -77,14 +76,15 @@
                     </ul>
                 </div>
                 <br> 
+                <button class="btn btn-primary btn-block" onclick="viewresult()">View Result</button>
             </div>
 
             <div class="card text-left" style="display:none" id="for-enhanced">
                 <div class="card-header text-center">ENHANCED SCAN RESULTS</div>
                 <div class="card-body">
                   <ul>
-                    <p class="h2 mt-3 mb-5 text-center text-primary" id="num2"></p>
-                    <p id="result2" class="display-4 text-center"></p>
+                    <!-- <p class="h2 mt-3 mb-5 text-center text-primary" id="num2"></p>
+                    <p id="result2" class="display-4 text-center"></p> -->
                     <li class="list-group-item">
                       <div class="row ml-1">
                         <p class="mt-2">Length of the url</p>
@@ -137,6 +137,8 @@
                     </li>
                   </ul>
                 </div>
+
+                <button class="btn btn-primary btn-block" onclick="viewresult()">View Result</button>
               </div>
 
         </div>
@@ -153,6 +155,10 @@
 
 
 $(document).ready(() => {
+
+    viewresult = () => {
+      window.location.replace('/result');
+    }
 
     let basicScan = () => {
         let url = $('#url').val();
@@ -176,7 +182,8 @@ $(document).ready(() => {
                 }
 
                 $('#num1').html("Tests Passed : "+`${passed} out of 6`);
-                
+                sessionStorage.setItem('res1', `${passed}`);
+                sessionStorage.setItem('scan', 'basic');
                 let res;
                 if(passed>=3){
                   res = 'LEGITIMATE'
@@ -234,6 +241,8 @@ $(document).ready(() => {
                 }
 
                 $('#num2').html("Tests Passed : "+`${passed} out of 8`);
+                sessionStorage.setItem('res1', `${passed}`);
+                sessionStorage.setItem('scan', 'full');
                 let res;
                 if(passed>=4){
                   res = 'LEGITIMATE'
